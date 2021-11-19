@@ -1,0 +1,62 @@
+{
+  "name": "ts-lib-starter",
+  "version": "0.1.0",
+  "description": "Typescript library starter",
+  "author": "Alessio Enrico Repetti <repeale@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "lib",
+    "starter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/repeale/ts-lib-starter"
+  },
+  "main": "cjs/index.js",
+  "module": "es6/index.js",
+  "typings": "cjs/index.d.ts",
+  "files": [
+    "cjs",
+    "es6"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.es6.json",
+    "lint": "eslint 'src/**/*.ts' --quiet",
+    "lint:fix": "eslint 'src/**/*.ts' --quiet --fix",
+    "prebuild": "rimraf cjs/* es6/*",
+    "test:ci": "CI=true jest --ci --coverage=true",
+    "test": "jest --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@repeale/eslint-config": "1.2.0",
+    "@repeale/prettier-config": "1.0.6",
+    "@types/jest": "27.0.3",
+    "@types/prettier": "2.4.2",
+    "@typescript-eslint/eslint-plugin": "5.4.0",
+    "@typescript-eslint/parser": "5.4.0",
+    "eslint": "8.2.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.27.1",
+    "husky": "7.0.4",
+    "jest": "27.3.1",
+    "lint-staged": "12.0.3",
+    "prettier": "2.4.1",
+    "rimraf": "3.0.2",
+    "ts-jest": "27.0.7",
+    "typescript": "4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "lint:fix"
+    ]
+  }
+}
