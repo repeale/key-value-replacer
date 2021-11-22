@@ -1,2 +1,1 @@
-export {sum} from './sum'
-export {subtract} from './subtract'
+export {replacer} from './replacer'
